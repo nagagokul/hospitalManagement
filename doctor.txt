@@ -1,0 +1,4 @@
+doctorid
+specialisation
+department
+doctorname

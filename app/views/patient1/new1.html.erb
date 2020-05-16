@@ -1,0 +1,39 @@
+<% if !user_signed_in? %>
+<div class="center1">
+<h2>Login first</h2>
+<p class="Sign_in"><%= link_to "Login", new_user_session_path %></p>
+</div>
+<%end%>
+<% if user_signed_in? %>
+<div class="header">
+<h1>Add new Doctor</h1>
+</div>
+<div class="container">
+<br/>
+<%= form_tag :action => 'create1' do %>
+
+<p><label for = doctor_id">DoctorId</label><br/>
+<%= text_field 'doctor', 'doctorid' %></p>
+
+<p><label for = doctor_name">Name</label><br/>
+<%= text_field 'doctor', 'name' %></p>
+
+<p><label for = "doctor_specialisation">Specialisation</label><br/>
+<%= text_field 'doctor', 'specialisation' %></p>
+
+<p><label for = "doctor_department">Department</label><br/>
+<%= text_field 'doctor', 'department' %></p>
+
+
+<%= hidden_field :user_id, value: current_user.id %>
+
+<%= submit_tag("Create", :class=>"addbtn") %>
+
+
+<% end -%>
+<div class='center'>
+<br />
+<%= link_to 'Back', {:action => 'show_doctor'} %>
+</div>
+</div>
+<%end%>

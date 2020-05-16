@@ -1,0 +1,25 @@
+<div class="header">
+<h1><%= @patient.name %></h1>
+</div>
+<div class="container">
+<p>
+   <strong>Patient id: </strong> <%= @patient.patientid %><br />
+   
+   <strong>Patient age: </strong> <%= @patient.age %><br />
+   <strong>Patient sex: </strong> <%= @patient.sex %><br />
+   <strong>Patient email id: </strong> <%= @patient.email %><br />
+   <strong>Doctor is: </strong> <%= @patient.doctor.name %><br />
+   <strong>Patient Cause: </strong> <%= @patient.cause %><br />
+   <strong>Patient status: </strong> <%= @patient.status %><br />
+   <br />
+   
+   
+</p>
+
+
+
+<br />
+<div class="center1">
+<%= link_to 'Back', {:action => 'list'} %>
+</div>
+</div>

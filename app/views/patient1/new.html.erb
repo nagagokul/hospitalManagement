@@ -1,0 +1,60 @@
+<% if !user_signed_in? %>
+<div class="center1">
+<h2>Login first</h2>
+<p class="Sign_in"><%= link_to "Login", new_user_session_path %></p>
+</div>
+<%end%>
+<% if user_signed_in? %>
+<div class="header">
+<h1>Add new Patient</h1>
+</div>
+<div class="container">
+
+
+
+<br/>
+<%= form_tag :action => 'create' do %>
+<% if @patient.errors.any? %>
+<h2>Errors:</h2>
+<ul>
+<% @patient.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+<% end %>
+<p><label for = "patient_id">PatientId</label><br/>
+<%= text_field 'patient', 'patientid' %></p>
+
+<p><label for = "patient_name">Name</label><br/>
+<%= text_field 'patient', 'name' %></p>
+
+<p><label for = "patient_age">Age</label><br/>
+<%= text_field 'patient', 'age' %></p>
+
+<p><label for = "patient_sex">Sex</label><br/>
+<%= text_field 'patient', 'sex' %></p>
+
+<p><label for = "patient_email">Email</label><br/>
+<%= text_field 'patient', 'email' %></p>
+
+<p><label for = "patient_doctor_id">Doctor</label>:
+<%= collection_select(:patient, :doctor_id, @doctor, :id, :name, prompt: true) %></p>
+
+<p><label for = "patient_cause">Cause</label><br/>
+<%= text_area 'patient', 'cause' %></p>
+
+<p><label for = "patient_status">Status</label><br/>
+<%= text_field 'patient', 'status' %></p>
+
+<%= hidden_field :user_id, value: current_user.id %>
+
+<%= submit_tag("Create", :class=>"addbtn") %>
+
+
+<% end -%>
+<div class='center'>
+<br />
+<%= link_to 'Back', {:action => 'list'} %>
+</div>
+</div>
+<%end%>

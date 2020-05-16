@@ -1,0 +1,18 @@
+<div class="header">
+<h1>Edit Doctor Detail</h1>
+</div>
+<div class="container">
+<%= form_for @doctor, :url =>{:action => "update1", :id =>@doctor} do |f| %>
+<p>Id: <div class="text1"><%= f.text_field  'doctorid' %></div></p>
+<p>Name: <div class="text1"><%= f.text_field  'name' %></div></p>
+<p>Specialisation: <div class="text1"><%= f.text_field  'specialisation' %></div></p>
+<p>Department: <div class="text1"><%= f.text_field  'department' %></div></p>
+
+<div class="center1">
+<%= f.submit("Save changes", :class=>"addbtn") %>
+<% end %>
+</div>
+<div class="center1">
+<%= link_to 'Back', {:action => 'show_doctor' } %>
+</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="header">
+<h1>Edit Patient Detail</h1>
+</div>
+<div class="container">
+<%= form_for @patients, :url =>{:action => "update", :id =>@patients} do |f| %>
+
+<p>Patientid: <div class="text1"><%= f.text_field 'patientid' %></div></p>
+<p>Name: <div class="text1"><%= f.text_field  'name' %></div></p>
+<p>Age: <div class="text1"><%= f.text_field  'age' %></div></p>
+<p>Sex: <div class="text1"><%= f.text_field  'sex' %></div></p>
+<p>Email Id: <div class="text1"><%= f.text_field  'email' %></div></p>
+<p>Doctor: <%= f.collection_select :doctor_id, Doctor.all, :id, :name %></p>
+<p>Cause: <div class="text1"><%= f.text_area 'cause' %></div></p>
+<p>Status: <div class="text1"><%= f.text_field  'status' %></div></p>
+<div class="center1">
+<%= f.submit("Save changes", :class=>"addbtn") %>
+<% end %>
+</div>
+<div class="center1">
+<%= link_to 'Back', {:action => 'list' } %>
+</div>
+</div>
